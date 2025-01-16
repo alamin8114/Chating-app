@@ -1,0 +1,43 @@
+.main-from{
+    @apply w-full h-screen bg-[#4CAB72] flex justify-center items-center
+}
+.from-bg{
+    @apply w-[982px] py-[66px] bg-gray-400 pl-[62px] rounded-[70px]
+}
+.main-from .main-from-part{
+    @apply w-[700px] pt-[54px] pb-[144px]  rounded-[50px] bg-[#e6dcdc5b] backdrop-blur-[6px]
+}
+.main-from .main-from-part h1{
+    @apply text-[52px] text-[#FFFFFF] font-Poppins font-bold text-center
+}
+.main-from .main-from-part  p{
+    @apply text-[16px] font-Poppins font-medium text-white text-center
+}
+.main-from .main-from-part  p a{
+    @apply text-brand-color
+}
+.input-from{
+    @apply pl-[67px]
+}
+.input-from label{
+    @apply block text-[18px] font-Poppins font-bold text-white
+}
+.input-from input{
+    @apply bg-transparent outline-none border-b-2 border-white w-[515px] text-[18px] font-Poppins font-semibold text-white mb-[30px]
+}
+.from-button {
+    @apply flex justify-center 
+}
+.from-button a{
+    @apply text-[16px] font-Poppins font-bold text-[#696969] px-[110px] py-[12px] bg-brand-color rounded-[10px] shadow-[rgb(98,255,180)_0px_25px_50px_-12px] mb-[30px] mt-[16px]
+
+}
+.sing-out p{
+    @apply text-[16px] font-Poppins font-medium text-white 
+}
+.google-button{
+    @apply mt-[30px]
+}
+.google-button button{
+    @apply w-[50px] p-[7px] bg-white rounded-[10px] ml-[30px]
+}
