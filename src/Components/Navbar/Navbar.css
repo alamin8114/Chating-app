@@ -1,0 +1,40 @@
+.main-menu {
+    @apply flex justify-center items-end h-[100px] pb-[20px]
+}
+.main-nav{
+    @apply w-[40px]  h-[40px] rounded-full bg-[#fff] flex justify-center items-center  duration-[.4s] relative 
+}
+.barbutton{
+    @apply text-[24px] text-gray-400
+}
+.openmenu{
+    @apply w-[300px] bg-white rounded-[5px]
+}
+.icons {
+    @apply absolute top-[50%] translate-y-[-50%]
+}
+.icons ul {
+    @apply flex gap-4
+}
+.icons ul li {
+    @apply text-[24px]  text-gray-400 relative
+}
+.icons1{
+    @apply   left-[20px]
+}
+.icons2{
+    @apply   right-[20px]
+}
+
+.showicon{
+    @apply duration-[.6s]
+}
+.hiddenicon{
+    @apply top-[-30px] scale-0 opacity-[00]
+}
+.icons ul li p{
+    @apply absolute h-[35px] leading-[35px] top-[-20px] px-[10px] bg-white left-[50%] translate-x-[-50%] rounded scale-0 transition-all duration-[.6s] opacity-0
+}
+.icons ul li:hover p{
+    @apply block top-[-45px] scale-[1] opacity-[1]
+}
