@@ -1,7 +1,12 @@
+import Profile from "../Components/Profile/Profile"
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <>
+    <div className="flex justify-center w-full h-fit mt-[50px] items-center">
+      <Profile/>
+    </div>
+    </>
   )
 }
 

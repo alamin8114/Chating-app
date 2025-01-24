@@ -6,8 +6,7 @@ import applelogo from '../../assets/images/apple-seeklogo.com 1.png'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { Bounce, toast } from 'react-toastify';
-import { datastore } from '../../slick/counterSlice';
-import { useDispatch } from 'react-redux';
+import { BeatLoader } from 'react-spinners';
 const Register = () => {
     
             const [data,setdata]=useState({ 'username':'','password':'','email':'','usererror':"", 'emailerror':'','passworderror':''})
@@ -16,7 +15,7 @@ const Register = () => {
 
             // custom variable 
             const navigate =useNavigate()
-            const dispach=useDispatch()
+            const [loding,setloding]=useState(false)
     // button part///////////////////
     const handelbutton=(e)=>{
         e.preventDefault()
@@ -30,13 +29,13 @@ const Register = () => {
             setdata((prev)=>({... prev ,passworderror:'Plz Enter Your password'}))
         }
         else{
-            const auth = getAuth();
+            setloding(true)
             createUserWithEmailAndPassword(auth, data.email, data.password)
-              .then((userCredential) => {
+            .then((userCredential) => {
                 const user = userCredential.user;
                 updateProfile(auth.currentUser, {
                     displayName: data.username, photoURL: "https://thumbs.dreamstime.com/z/businessman-avatar-image-beard-hairstyle-male-profile-vector-illustration-178545831.jpg"
-                  }).then(() => {
+                }).then(() => {
                     sendEmailVerification(auth.currentUser)
                     .then(() => {
                         toast.success('send Email Verification Code', {
@@ -52,10 +51,10 @@ const Register = () => {
                             });
                     });
                     navigate('/Login')
-                    dispach(datastore(user))
+                    setloding(false)
                     });
-              })
-              .catch((error) => {
+            })
+            .catch((error) => {
                 const errorCode = error.code;
                 if(errorCode== 'auth/invalid-email'){
                     toast.error('invalid Email', {
@@ -124,16 +123,21 @@ const Register = () => {
                         <label>Password</label>
                         <p className='text-[14px] !text-red-500'>{data.passworderror}</p>
                         <input type='password' onChange={(e)=>{setdata((prev)=>({... prev , password:e.target.value})),setdata((prev)=>({... prev ,passworderror:''}))}}/>
-                        <div className="from-button">
-                            <Link onClick={handelbutton} to={''}>Sign Up</Link>
-                        </div>
                     </div>
-                    <div className="sing-out flex items-center justify-center pl-[67px] gap-2 mt-[30px]">
+                        <div className="from-button">
+                            {
+                                loding?
+                                <button onClick={handelbutton} ><BeatLoader/></button>
+                                :
+                            <button onClick={handelbutton} >Sign Up</button>
+                            }
+                        </div>
+                    <div className="sing-out flex items-center justify-center  gap-2 mt-[30px]">
                         <div className="w-[150px] h-[2px] bg-white"></div>
                         <p>Or Sign Up with </p>
                         <div className="w-[150px] h-[2px] bg-white"></div>
                     </div>
-                    <div className="google-button flex justify-center items-center">
+                    <div className="google-button flex justify-center items-center gap-[30px]">
                         <button>
                             <img src={googlelogo} alt="google-logo" />
                         </button>

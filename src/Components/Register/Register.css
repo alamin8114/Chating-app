@@ -26,10 +26,10 @@
     @apply bg-transparent outline-none border-b-2 border-white w-[515px] text-[18px] font-Poppins font-semibold text-white mb-[30px]
 }
 .from-button {
-    @apply flex justify-center 
+    @apply flex justify-center  items-center
 }
-.from-button a{
-    @apply text-[16px] font-Poppins font-bold text-[#696969] px-[110px] py-[12px] bg-brand-color rounded-[10px] shadow-[rgb(98,255,180)_0px_25px_50px_-12px] mb-[30px] mt-[16px]
+.from-button button{
+    @apply text-[16px] font-Poppins font-bold text-[#696969] w-[200px] h-[50px] bg-brand-color rounded-[10px] shadow-[rgb(98,255,180)_0px_25px_50px_-12px] mb-[30px] mt-[16px]
 
 }
 .sing-out p{
@@ -39,5 +39,5 @@
     @apply mt-[30px]
 }
 .google-button button{
-    @apply w-[50px] p-[7px] bg-white rounded-[10px] ml-[30px]
+    @apply w-[50px] py-2 flex justify-center items-center bg-white rounded-[10px] 
 }
